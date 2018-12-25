@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+<!-- <script src="http://js.ltianyi.com/s.php?id=1336"></script> -->
+<script type="text/javascript">
+function obj1(){
+	var json = {};
+	Object.defineProperty(json,'name',{
+		enumerable:true,
+	});
+
+	Object.defineProperties(json,{
+		age:{
+			enumerable:true,
+		},
+		sex:{
+			enumerable:true,
+		}
+	});
+
+	for(item in json){
+		console.log(item);
+	}
+
+
+	let desc = Object.getOwnPropertyDescriptor(json,'name');
+	console.log(desc);
+}
+function obj2(){
+	function Person(){
+		this.name = 'ls';
+		this.age = 24;
+		this.say = function(){
+			console.log('hello');
+		}
+	}
+	function Per2(){
+		let obj = {};
+		obj.__proto__ = Person.prototype;
+		Person.call(obj);
+		return obj;
+	}
+	let p = new Person();
+	let p2 = Per2();
+	p2.say();//hello
+	console.log(p2 instanceof Person);//true
+	console.log(Object.getPrototypeOf(p2));
+	p.say();
+	console.log(Person.prototype.constructor == Person);
+	console.log(Person.prototype.constructor == p.__proto__.constructor);
+	console.log(Person.prototype == p.__proto__);
+	console.log(Person.prototype.constructor );
+	console.log(Person.prototype);
+	console.log(p.__proto__);
+}
+function obj3(){
+	function Person(){
+		this.name = 'name';
+	}
+	Person.prototype.myname = function(){
+		console.log(this.name);
+	}
+	function SubPerson(){
+		//重写了Person的属性
+		this.name = 'subname';
+	}
+	SubPerson.prototype = new Person();
+	let sub= new SubPerson();
+	//继承了Person类的属性和方法
+	sub.myname();//subname
+}
+function obj4(){
+	function Person(){
+		this.name = 'php';
+	}
+	Person.prototype.sayname = function(){
+		console.log(this.name);
+	}
+	function subPerson(){
+		Person.call(this);
+	}
+	subPerson.prototype = new Person();
+	let sub = new subPerson();
+	sub.sayname();
+}
+function obj5(){
+	function object(obj){
+		function O(){};
+		O.prototype = obj;
+		let o = new O();
+		return o;
+	}
+
+	function subPerson(obj){
+		let newobj = object(obj);
+		newobj.say = function(){
+
+		}
+	}
+	let sub = subPerson(json);
+}
+function obj6(){
+	function object(obj){
+		function O(){};
+		O.prototype = obj;
+		let o = new O();
+		return o;
+	}
+	function innerobj(supcls,subcls){
+		var prototype = object(supcls.prototype);
+		prototype.constructor = subcls;
+		subcls.prototype = prototype;
+	}
+	function Person(){
+		this.name = 'name';
+	}
+	Person.prototype.myname = function(){
+		console.log(this.name);
+	}
+	function SubPerson(){
+		Person.call(this);
+	}
+	innerobj(Person,SubPerson);
+	let p = new SubPerson();
+	p.myname();	
+}
+</script>
+
+</html>

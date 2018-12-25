@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+	//函数之间传参使用值传递(普通类型)
+	var obj = '123';
+	function setname(obj){
+		obj = 234; //这里修改obj的值
+	}
+	setname(obj);
+	console.log(obj);//输出123
+
+
+	//对象类型函数传参
+	var obj2 = {};
+	function setage(obj2){
+		obj2.age = 22;//为对象添加属性
+		obj2 = new Date(); //修改obj2的指向
+		console.log(obj2);//Fri Sep 29 2017 15:24:38 GMT+0800
+	}
+	setage(obj2);
+	console.log(obj2);//{age: 22}
+
+
+	var num = new Number(2);
+	var num2 = num;
+	num2 = new Number(3);
+	console.log(num);
+	console.log(num2); 
+
+
+
+</script>
+</html>

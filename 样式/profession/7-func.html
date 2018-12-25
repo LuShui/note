@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+function obj1(){
+	function Jfunc(num){
+ 		if (num == 1) {
+ 			return num;
+ 		}else{
+ 			return num + Jfunc(num - 1);
+ 		}
+ 	}
+ 	let a = Jfunc(10);
+ 	console.log(a);
+}
+ 	
+ 	let a = 20;
+ 	function base(){
+ 		let a = 10;
+ 		return function(){
+ 			return a;
+ 		}
+ 	}
+ 	let b = base()();
+ 	console.log(b);
+
+ 	
+
+
+</script>
+
+</html>

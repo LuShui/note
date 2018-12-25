@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css居中，父子元素宽高已知</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height:100%;
+        }
+        .box{
+            width: 100vw;
+            height:100vh;
+            display: table-cell;
+		    text-align: center;
+		    vertical-align: middle;
+            background-color: #ffff00;
+        }
+        .child{
+            
+            display: inline-block;
+            background-color: red;
+            max-width: 100px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="child">
+		hello this is a pig 
+    </div>
+</div>
+
+</body>
+</html>

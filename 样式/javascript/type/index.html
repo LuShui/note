@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+	<script type="text/javascript">
+		class TypeController{
+
+			_log(b,t){
+				console.log(b + '的类型是:' +t);
+			}
+
+			_typeof(){
+				let a = 'string';
+				let b = null;
+				let c = [1,2,3,4,5];
+				let d = true;
+				let e = undefined;
+				let f = function(){console.log(1)};
+				let g = new Date();
+				let h = new Error();
+				let i = new RegExp(/a/g);
+				let j = new  Promise(function (resolve,reject) {
+				           setTimeout(()=>resolve('succed'),5000);
+				        });
+				let k = 2 || Number(2);
+				class l{};
+				let m = {'a':1};
+				        
+
+				this._log('a',typeof a);//a的类型是:string
+				this._log('d',typeof d);//d的类型是:boolean
+				this._log('e',typeof e);//e的类型是:undefined
+				this._log('k',typeof k);//k的类型是:number
+
+				this._log('f',typeof f);//f的类型是:function
+				this._log('l',typeof l);//l的类型是:function
+
+				this._log('b',typeof b);//b的类型是:object
+				this._log('g',typeof g);//g的类型是:object
+				this._log('h',typeof h);//h的类型是:object
+				this._log('i',typeof i);//i的类型是:object
+				this._log('j',typeof j);//j的类型是:object
+				this._log('c',typeof c);//c的类型是:object
+				this._log('m',typeof m);//m的类型是:object
+
+			}
+
+			_tostring(){
+				let a = 'string';
+				let b = null;
+				let c = [1,2,3,4,5];
+				let d = true;
+				let e = undefined;
+				let f = function(){console.log(1)};
+				let g = new Date();
+				let h = new Error();
+				let i = new RegExp(/a/g);
+				let j = new  Promise(function (resolve,reject) {
+				           setTimeout(()=>resolve('succed'),5000);
+				        });
+				let k = 2 || Number(2);
+				class l{};
+				let m = {'a':1};
+				let n = new Set();
+
+
+				this._log('a',Object.prototype.toString.call(a));//a的类型是:[object String]
+				this._log('d',Object.prototype.toString.call(d));//d的类型是:[object Boolean]
+				this._log('e',Object.prototype.toString.call(e));//e的类型是:[object Undefined]
+				this._log('k',Object.prototype.toString.call(k));//k的类型是:[object Number]
+				this._log('f',Object.prototype.toString.call(f));//f的类型是:[object Function]
+				this._log('l',Object.prototype.toString.call(l));//l的类型是:[object Function]
+				this._log('b',Object.prototype.toString.call(b));//b的类型是:[object Null]
+				this._log('g',Object.prototype.toString.call(g));//g的类型是:[object Date]
+				this._log('h',Object.prototype.toString.call(h));//h的类型是:[object Error]
+				this._log('i',Object.prototype.toString.call(i));//i的类型是:[object RegExp]
+				this._log('j',Object.prototype.toString.call(j));//j的类型是:[object Promise]
+				this._log('c',Object.prototype.toString.call(c));//c的类型是:[object Array]
+				this._log('m',Object.prototype.toString.call(m));//m的类型是:[object Object]
+				this._log('n',Object.prototype.toString.call(n));//m的类型是:[object Set]
+				this._log('w',Object.prototype.toString.call(window));//m的类型是:[object Window]
+				this._log('o',Object.prototype.toString.call(Math));//m的类型是:[object Math]
+				this._log('p',Object.prototype.toString.call(Symbol()));//p的类型是:[object Math]
+
+			}
+
+			_ins(){
+				let a = 'string';
+				let b = null;
+				let c = [];
+				let d = true;
+				let e = undefined;
+				let f = function(){console.log(1)};
+				let g = new Date();
+				let h = new Error();
+				let i = new RegExp(/a/g);
+				let j = new  Promise(function (resolve,reject) {
+				           setTimeout(()=>resolve('succed'),5000);
+				        });
+				let k =new Number(2);
+				class l{};
+				let m = {'a':1};
+				let n = new Set();
+
+				console.log(a instanceof String);//false
+				console.log(c instanceof Array);//true
+				console.log(d instanceof Boolean);//false
+				console.log(f instanceof Function);//true
+				console.log(g instanceof Date);//true
+				console.log(h instanceof Error);//true
+				console.log(i instanceof RegExp);//true
+				console.log(j instanceof Promise);//true
+				console.log(k instanceof Number);//false
+			}
+
+		}
+
+		let type = new TypeController();
+
+
+	</script>
+</html>

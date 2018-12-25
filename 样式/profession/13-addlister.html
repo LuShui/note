@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		section{
+			width: 100%;
+			height: 100%;
+		}
+		#btn{
+			width: 200px;
+			height: 200px;
+			margin:0 auto;
+			margin-top: 150px;
+			background-color: red; 
+		}
+	</style>
+</head>
+<body>
+
+<section>
+	<form>
+		<div class="itembox">
+			<label>name</label>
+			<input type="text" name="name">
+		</div>
+		<div class="itembox">
+			<label>password</label>
+			<input type="text" name="password">
+		</div>
+		<div class="itembox">
+			<label>sex</label>
+			<input type="text" name="sex">
+		</div>
+		<div class="itembox">
+			<label>address</label>
+			<textarea type="text" name="address"></textarea>
+		</div>
+
+		<div class="itembox">
+			<input type="submit" name="submit">
+		</div>
+
+
+
+	</form>
+
+</section>
+
+
+</body>
+<script type="text/javascript">
+
+let btn = document.getElementById('btn');
+
+
+btn.addEventListener('click',()=>{
+	console.log(1);
+},false);
+btn.addEventListener('click',()=>{
+	console.log(2);
+},true);
+
+
+</script>
+</html>
